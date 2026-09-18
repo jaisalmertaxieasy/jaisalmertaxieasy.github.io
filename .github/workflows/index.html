@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jaisalmer Taxi Easy — Taxi &amp; Tour Service, Jaisalmer</title>
+<meta name="description" content="Local sightseeing, outstation trips, airport transfers and desert safari transport in Jaisalmer, Rajasthan. Book a taxi by call or WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand: #F1E4C6;
+    --sand-deep: #E4CE9C;
+    --ink: #241C13;
+    --indigo: #1D2C4E;
+    --indigo-deep: #14203A;
+    --rust: #963A28;
+    --gold: #B9812E;
+    --line: rgba(36,28,19,0.18);
+    --line-on-dark: rgba(241,228,198,0.28);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--sand);
+    color: var(--ink);
+    font-family: "Work Sans", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; }
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  h1, h2, h3{
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    margin: 0;
+  }
+  .measure{ max-width: 62ch; }
+
+  /* ---------- header ---------- */
+  header{
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand{
+    font-family:"Fraunces", serif;
+    font-weight:600;
+    font-size: 1.25rem;
+    letter-spacing: 0.01em;
+  }
+  .brand span{ color: var(--rust); }
+  nav.primary{
+    display:flex;
+    align-items:center;
+    gap: 28px;
+  }
+  nav.primary a{
+    text-decoration:none;
+    font-size: 0.95rem;
+    color: var(--ink);
+    opacity: 0.8;
+  }
+  nav.primary a:hover{ opacity: 1; }
+  .call-pill{
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-toggle{ display:none; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background: var(--indigo);
+    color: var(--sand);
+    padding: 78px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height: 120px;
+    background: linear-gradient(to top, rgba(185,129,46,0.25), transparent);
+    pointer-events:none;
+  }
+  .hero .wrap{ position:relative; }
+  .kicker{
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--sand-deep);
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    max-width: 14ch;
+    letter-spacing: -0.01em;
+  }
+  .hero p.lead{
+    margin-top: 22px;
+    max-width: 46ch;
+    font-size: 1.1rem;
+    color: var(--sand);
+    opacity: 0.92;
+  }
+  .cta-row{
+    margin-top: 34px;
+    display:flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding: 13px 26px;
+    border-radius: 999px;
+    text-decoration:none;
+    font-size: 0.98rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+  .btn-solid{
+    background: var(--rust);
+    color: var(--sand);
+  }
+  .btn-outline{
+    border-color: var(--line-on-dark);
+    color: var(--sand);
+  }
+  .stat-row{
+    margin-top: 56px;
+    display:flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line-on-dark);
+    padding-top: 26px;
+  }
+  .stat-row div{ min-width: 120px; }
+  .stat-num{
+    font-family:"Fraunces", serif;
+    font-size: 2rem;
+    color: var(--sand-deep);
+  }
+  .stat-label{
+    font-size: 0.85rem;
+    opacity: 0.75;
+    margin-top: 4px;
+  }
+
+  /* ---------- section heading pattern ---------- */
+  .section{ padding: 68px 0; }
+  .section + .section{ border-top: 1px solid var(--line); }
+  .section-head{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .section-head h2{
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+  }
+  .section-head p{
+    max-width: 34ch;
+    opacity: 0.75;
+    margin: 0;
+  }
+
+  /* ---------- routes ledger ---------- */
+  .ledger{
+    border-top: 1px solid var(--line);
+  }
+  .ledger-row{
+    display:grid;
+    grid-template-columns: 1.4fr 0.6fr 0.6fr 1.2fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .ledger-row.head{
+    font-size: 0.82rem;
+    opacity: 0.6;
+    padding-bottom: 10px;
+  }
+  .ledger-row .route-name{
+    font-family: "Fraunces", serif;
+    font-size: 1.15rem;
+  }
+  .ledger-row .muted{ opacity: 0.7; font-size: 0.95rem; }
+
+  /* ---------- services ---------- */
+  .service-list{
+    border-top: 1px solid var(--line);
+  }
+  .service{
+    display:grid;
+    grid-template-columns: 0.9fr 2fr;
+    gap: 28px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .service h3{
+    font-size: 1.3rem;
+    color: var(--rust);
+  }
+  .service p{
+    margin: 0;
+    opacity: 0.88;
+  }
+
+  /* ---------- fleet ---------- */
+  .fleet-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .fleet-card{
+    padding: 26px 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .fleet-card h3{
+    font-size: 1.15rem;
+  }
+  .fleet-card .cap{
+    font-size: 0.85rem;
+    color: var(--rust);
+    margin-top: 6px;
+  }
+  .fleet-card p{
+    margin-top: 12px;
+    opacity: 0.82;
+    font-size: 0.96rem;
+  }
+
+  /* ---------- why / quote ---------- */
+  .why{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .why ul{
+    list-style: none;
+    margin: 0; padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .why li{
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    display:flex;
+    gap: 16px;
+  }
+  .why li .mark{
+    font-family:"Fraunces", serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+  blockquote{
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-style: italic;
+    color: var(--ink);
+  }
+  blockquote cite{
+    display:block;
+    margin-top: 18px;
+    font-family: "Work Sans", sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  /* ---------- contact ---------- */
+  .contact{
+    background: var(--indigo-deep);
+    color: var(--sand);
+    padding: 72px 0;
+  }
+  .contact .wrap{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+  }
+  .contact h2{
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    color: var(--sand);
+    max-width: 16ch;
+  }
+  .contact p.lead{
+    margin-top: 16px;
+    opacity: 0.82;
+    max-width: 40ch;
+  }
+  .contact-list{
+    border-top: 1px solid var(--line-on-dark);
+  }
+  .contact-list a, .contact-list div{
+    display:block;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-on-dark);
+    text-decoration:none;
+  }
+  .contact-list .label{
+    font-size: 0.78rem;
+    opacity: 0.65;
+    margin-bottom: 4px;
+  }
+  .contact-list .value{
+    font-family:"Fraunces", serif;
+    font-size: 1.2rem;
+  }
+
+  footer{
+    padding: 28px 0;
+    font-size: 0.85rem;
+    opacity: 0.65;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 760px){
+    nav.primary{ display:none; }
+    .service{ grid-template-columns: 1fr; }
+    .fleet-grid{ grid-template-columns: 1fr; }
+    .why{ grid-template-columns: 1fr; }
+    .contact .wrap{ grid-template-columns: 1fr; }
+    .ledger-row{ grid-template-columns: 1fr 1fr; row-gap: 4px; }
+    .ledger-row .route-name{ grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Jaisalmer <span>Taxi</span> Easy</div>
+    <nav class="primary">
+      <a href="#routes">Routes</a>
+      <a href="#services">Services</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="call-pill" href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Taxi &amp; tour service, Jaisalmer</div>
+    <h1>A ride across the Golden City, and the desert beyond it.</h1>
+    <p class="lead">Local sightseeing, outstation drives, airport pickups and desert-camp transfers — one call away, with a driver who knows the sand roads as well as the city gates.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener">Book on WhatsApp</a>
+      <a class="btn btn-outline" href="tel:+91XXXXXXXXXX">Call to book</a>
+    </div>
+    <div class="stat-row">
+      <div>
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Airport &amp; railway pickups</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Outstation routes covered</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Vehicle classes, sedan to traveller</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="routes">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where people ask to go</h2>
+      <p>A working sample of routes and fares — tell us your dates and we'll quote the rest.</p>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row head">
+        <div>Route</div>
+        <div>Distance</div>
+        <div>Drive time</div>
+        <div>Good for</div>
+      </div>
+      <div class="ledger-row">
+        <div class="route-name">Jaisalmer city &amp; fort day tour</div>
+        <div class="muted">within city</div>
+        <div class="muted">full day</div>
+        <div class="muted">Fort, havelis, Gadisar Lake</div>
+      </div>
+      <div class="ledger-row">
+        <div class="route-name">Sam Sand Dunes</div>
+        <div class="muted">~42 km</div>
+        <div class="muted">~1 hr</div>
+        <div class="muted">Sunset, camel &amp; desert camp</div>
+      </div>
+      <div class="ledger-row">
+        <div class="route-name">Khuri Dunes</div>
+        <div class="muted">~48 km</div>
+        <div class="muted">~1 hr 15m</div>
+        <div class="muted">Quieter dunes, overnight camps</div>
+      </div>
+      <div class="ledger-row">
+        <div class="route-name">Jaisalmer Airport</div>
+        <div class="muted">~5 km</div>
+        <div class="muted">~15 min</div>
+        <div class="muted">Arrivals &amp; departures, any hour</div>
+      </div>
+      <div class="ledger-row">
+        <div class="route-name">Jodhpur</div>
+        <div class="muted">~285 km</div>
+        <div class="muted">~5–6 hrs</div>
+        <div class="muted">One-way or round trip</div>
+      </div>
+      <div class="ledger-row">
+        <div class="route-name">Jaipur</div>
+        <div class="muted">~560 km</div>
+        <div class="muted">~9–10 hrs</div>
+        <div class="muted">Long outstation, overnight option</div>
+      </div>
+      <div class="ledger-row">
+        <div class="route-name">Tanot Mata Temple</div>
+        <div class="muted">~120 km</div>
+        <div class="muted">~2 hrs</div>
+        <div class="muted">Border-road day trip</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What we drive for</h2>
+      <p>Four kinds of trips, built around how people actually move through Jaisalmer.</p>
+    </div>
+    <div class="service-list">
+      <div class="service">
+        <h3>Local sightseeing</h3>
+        <p class="measure">Half-day or full-day city hire covering Jaisalmer Fort, Patwon Ki Haveli, Gadisar Lake and the old bazaars, at a pace you set — waiting time at each stop is built in, not billed as extra.</p>
+      </div>
+      <div class="service">
+        <h3>Outstation, one-way or round trip</h3>
+        <p class="measure">Jodhpur, Jaipur, Udaipur, Bikaner and beyond. Pay for a one-way drop instead of a return fare you don't need, or book a round trip with the same driver and car throughout.</p>
+      </div>
+      <div class="service">
+        <h3>Airport &amp; railway transfers</h3>
+        <p class="measure">Flight and train timings tracked, so a late arrival doesn't mean an empty pickup point. Meet-and-greet with a name board on request.</p>
+      </div>
+      <div class="service">
+        <h3>Desert camp &amp; safari transport</h3>
+        <p class="measure">Transfers to Sam and Khuri for sunset dune visits, camel safaris and overnight desert camps, timed around sunset and the camp's own pickup schedule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fleet">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The fleet</h2>
+      <p>Three classes of vehicle, chosen by party size and distance, not upsold by default.</p>
+    </div>
+    <div class="fleet-grid">
+      <div class="fleet-card">
+        <h3>Sedan</h3>
+        <div class="cap">1–3 passengers</div>
+        <p>City tours and shorter outstation runs where a lighter car is quicker on the highway.</p>
+      </div>
+      <div class="fleet-card">
+        <h3>SUV</h3>
+        <div class="cap">4–6 passengers</div>
+        <p>Families and small groups, with room for luggage on multi-day outstation trips.</p>
+      </div>
+      <div class="fleet-card">
+        <h3>Tempo Traveller</h3>
+        <div class="cap">7–12 passengers</div>
+        <p>Larger groups travelling together — one vehicle, one driver, one itinerary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap why">
+    <div>
+      <blockquote>
+        "Booked a driver the night before an early Sam Dunes sunrise. He was outside the hotel gate before we were."
+        <cite>— Traveller review, edit with a real quote</cite>
+      </blockquote>
+    </div>
+    <ul>
+      <li><span class="mark">—</span> Fixed fares agreed before the trip starts, nothing added at the drop-off</li>
+      <li><span class="mark">—</span> Drivers who speak enough English for a comfortable trip</li>
+      <li><span class="mark">—</span> Same driver and car for the whole outstation trip</li>
+      <li><span class="mark">—</span> Flight and train delays tracked for pickups</li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Tell us your dates and we'll send a fare.</h2>
+      <p class="lead">Fastest way to book is WhatsApp — send your pickup point, date and where you're headed, and we'll confirm a car and price within the hour.</p>
+    </div>
+    <div class="contact-list">
+      <a class="value-block" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener">
+        <div class="label">WhatsApp</div>
+        <div class="value">+91 XXXXX XXXXX</div>
+      </a>
+      <a class="value-block" href="tel:+91XXXXXXXXXX">
+        <div class="label">Call</div>
+        <div class="value">+91 XXXXX XXXXX</div>
+      </a>
+      <a class="value-block" href="mailto:info@jaisalmertaxieasy.com">
+        <div class="label">Email</div>
+        <div class="value">info@jaisalmertaxieasy.com</div>
+      </a>
+      <div>
+        <div class="label">Based in</div>
+        <div class="value">Jaisalmer, Rajasthan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="year"></span> Jaisalmer Taxi Easy</div>
+    <div>Serving Jaisalmer city, the Thar Desert region &amp; Rajasthan outstation routes</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
